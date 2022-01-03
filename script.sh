@@ -142,7 +142,10 @@ sudo apt-get update
  fi
 
 echo "MODIFICANDO ARQUIVOS"
-if ! sudo rm /home/$name/.vnc/xstartup.sh
+
+cd
+
+if ! sudo rm /home/$name/.vnc/xstartup
  then 
     echo "ERRO AO APAGAR O ARQUIVO" 
     exit 1 

@@ -135,11 +135,11 @@ sudo apt-get update
     exit 1 
  fi
 
- if ! sudo apt-mark hold kubelet kubeadm kubectl
- then 
+if ! sudo apt-mark hold kubelet kubeadm kubectl
+then 
     echo "Ocorreu um erro!20"
     exit 1 
- fi
+fi
 
 if ! vncserver
  then 
@@ -150,25 +150,42 @@ if ! vncserver
 vncserver -kill :1
 
 echo "MODIFICANDO ARQUIVOS"
+git clone https://github.com/ArthurHenriqueDalosto/Server-Config-DuettSoftware.git
 cd
 
-if ! sudo rm /home/$name/.vnc/xstartup
+if ! sudo rm /root/.vnc/xstartup
  then 
-    echo "ERRO AO APAGAR O ARQUIVO" 
+    echo "ERRO AO APAGAR O ARQUIVO1" 
     exit 1 
  fi
 
-git clone https://github.com/ArthurHenriqueDalosto/Server-Config-DuettSoftware.git
-
-if ! sudo cp /home/$name/Server-Config-DuettSoftware/xstartup /home/$name/.vnc
+if ! sudo cp /home/$name/Server-Config-DuettSoftware/xstartup /root/.vnc
  then 
-    echo "ERRO AO COPIAR O ARQUIVO" 
+    echo "ERRO AO COPIAR O ARQUIVO1" 
+    exit 1 
+ fi
+
+if ! sudo chmod 777 /root/.vnc/xstartup
+then 
+    echo "ERRO ELEVAR PERMISSAO DO ARQUIVO1" 
+    exit 1 
+ fi
+
+if ! sudo rm  /home/$name/.vnc/xstartup
+ then 
+    echo "ERRO AO APAGAR O ARQUIVO2" 
+    exit 1 
+ fi
+
+if ! sudo cp /home/$name/Server-Config-DuettSoftware/xstartup /home/$name/.vnc/
+ then 
+    echo "ERRO AO COPIAR O ARQUIVO2" 
     exit 1 
  fi
 
 if ! sudo chmod 777 /home/$name/.vnc/xstartup
 then 
-    echo "ERRO ELEVAR PERMISSAO DO ARQUIVO" 
+    echo "ERRO ELEVAR PERMISSAO DO ARQUIVO2" 
     exit 1 
  fi
 

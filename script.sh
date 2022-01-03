@@ -141,6 +141,14 @@ sudo apt-get update
     exit 1 
  fi
 
+if ! vncserver
+ then 
+    echo "Ocorreu um erro!20"
+    exit 1 
+ fi
+
+vncserver -kill :1
+
 echo "MODIFICANDO ARQUIVOS"
 cd
 

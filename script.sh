@@ -42,7 +42,7 @@ read name;
  
  if ! apt install xfce4 xfce4-goodies
  then 
-    echo "Ocorreu um erro!4" 
+    echo "OCORREU UM ERRO AO INSTALAR O VNC SERVER" 
     exit 1 
  fi
  
@@ -70,13 +70,13 @@ echo "INSTALANDO JAVASDK'S"
 
 if ! apt-get install default-jre
  then 
-    echo "Ocorreu um erro!9" 
+    echo "OCORREU UM ERRO AO INSTALAR JAVAS SDK's" 
     exit 1 
  fi
 
  if ! apt-get install default-jdk
  then 
-    echo "Ocorreu um erro!10" 
+    echo "OCORREU UM ERRO AO INSTALAR JAVAS SDK's" 
     exit 1 
  fi
 
@@ -86,7 +86,7 @@ javac -version
 echo "INSTALANDO DOCKER E KUBERNATES"
 if ! sudo apt-get install docker.io
  then 
-    echo "Ocorreu um erro!11" 
+    echo "OCORREU UM ERRO AO INSTALAR DOCKER E KUBERNATES" 
     exit 1 
  fi
 
@@ -99,7 +99,7 @@ if ! sudo apt-get install docker.io
 
   if ! sudo apt-get install curl
  then 
-    echo "Ocorreu um erro!14"
+    echo "OCORREU UM ERRO AO INSTALAR O CURL"
     exit 1 
  fi
 
@@ -117,7 +117,7 @@ if ! sudo apt-get install -y apt-transport-https ca-certificates curl
 
 if ! apt-get install firefox
  then 
-    echo "Ocorreu um erro!17"
+    echo "OCORREU UM ERRO AO INSTALAR O FIREFOX"
     exit 1 
  fi
 
@@ -131,7 +131,7 @@ sudo apt-get update
 
  if ! sudo apt-get install -y kubelet kubeadm kubectl
  then 
-    echo "Ocorreu um erro!19"
+    echo "OCORREU UM ERRO AO INSTALAR O KUBELET"
     exit 1 
  fi
 
@@ -142,7 +142,6 @@ sudo apt-get update
  fi
 
 echo "MODIFICANDO ARQUIVOS"
-
 cd
 
 if ! sudo rm /home/$name/.vnc/xstartup
@@ -161,7 +160,7 @@ if ! sudo cp /home/$name/Server-Config-DuettSoftware/xstartup /home/$name/.vnc
 
 if ! sudo chmod 777 /home/$name/.vnc/xstartup
 then 
-    echo "ERRO AO COPIAR O ARQUIVO" 
+    echo "ERRO ELEVAR PERMISSAO DO ARQUIVO" 
     exit 1 
  fi
 

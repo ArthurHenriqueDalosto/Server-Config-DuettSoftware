@@ -148,9 +148,9 @@ if ! sudo rm /home/$name/.vnc/xstartup.sh
     exit 1 
  fi
 
-git clone https://github.com/ArthurHenriqueDalosto/ServerConfig.git
+git clone https://github.com/ArthurHenriqueDalosto/Server-Config-DuettSoftware.git
 
-if ! sudo cp /home/$name/ServerConfig/xstartup.sh /home/$name/.vnc
+if ! sudo cp /home/$name/Server-Config-DuettSoftware/xstartup.sh /home/$name/.vnc
  then 
     echo "ERRO AO COPIAR O ARQUIVO" 
     exit 1 

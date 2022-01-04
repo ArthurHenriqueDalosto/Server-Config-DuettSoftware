@@ -141,53 +141,20 @@ then
     exit 1 
 fi
 
-if ! vncserver
- then 
-    echo "Ocorreu um erro!20"
-    exit 1 
- fi
-
+vncserver
 vncserver -kill :1
 
 echo "MODIFICANDO ARQUIVOS"
 git clone https://github.com/ArthurHenriqueDalosto/Server-Config-DuettSoftware.git
 cd
 
-if ! sudo rm /root/.vnc/xstartup
- then 
-    echo "ERRO AO APAGAR O ARQUIVO1" 
-    exit 1 
- fi
+sudo rm /root/.vnc/xstartup
+sudo cp /home/$name/Server-Config-DuettSoftware/xstartup /root/.vnc
+sudo chmod 777 /root/.vnc/xstartup
+sudo rm  /home/$name/.vnc/xstartup
+sudo cp /home/$name/Server-Config-DuettSoftware/xstartup /home/$name/.vnc/
+sudo chmod 777 /home/$name/.vnc/xstartup
 
-if ! sudo cp /home/$name/Server-Config-DuettSoftware/xstartup /root/.vnc
- then 
-    echo "ERRO AO COPIAR O ARQUIVO1" 
-    exit 1 
- fi
-
-if ! sudo chmod 777 /root/.vnc/xstartup
-then 
-    echo "ERRO ELEVAR PERMISSAO DO ARQUIVO1" 
-    exit 1 
- fi
-
-if ! sudo rm  /home/$name/.vnc/xstartup
- then 
-    echo "ERRO AO APAGAR O ARQUIVO2" 
-    exit 1 
- fi
-
-if ! sudo cp /home/$name/Server-Config-DuettSoftware/xstartup /home/$name/.vnc/
- then 
-    echo "ERRO AO COPIAR O ARQUIVO2" 
-    exit 1 
- fi
-
-if ! sudo chmod 777 /home/$name/.vnc/xstartup
-then 
-    echo "ERRO ELEVAR PERMISSAO DO ARQUIVO2" 
-    exit 1 
- fi
 
 echo "ADICIONANDO TAREFA AUTOMATICA"
 
